@@ -1,0 +1,23 @@
+{
+  "name": "project2.github.io",
+  "version": "1.0.0",
+  "description": "Project 2",
+  "main": "server.js",
+  "dependencies": {
+    "eslint": "^6.8.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adamwenger44/project2.github.io.git"
+  },
+  "author": "grop",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adamwenger44/project2.github.io/issues"
+  },
+  "homepage": "https://github.com/adamwenger44/project2.github.io#readme"
+}
