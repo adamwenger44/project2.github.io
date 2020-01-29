@@ -9,7 +9,7 @@
   "devDependencies": {},
   "scripts": {
     "start": "node server.js",
- 
+    "lint": "eslint **/*.js --quiet",
     "test": "npm run lint"
 
   },
