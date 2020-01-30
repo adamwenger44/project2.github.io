@@ -1,0 +1,8 @@
+A meal planner that can browse recipies, and have you save ingredients to a shopping list. first it will check your fridge (mysql database) to see if you have the item already, if you have it, it will let you know, if not it will let you add to list.  once you click a button to go shopping, it will add items to your fridge.
+
+api:
+
+spoontacular
+
+css:
+materialize
