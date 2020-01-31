@@ -11,11 +11,7 @@
     "rules": {
         "indent": [
             "error",
-            "tab"
-        ],
-        "linebreak-style": [
-            "error",
-            "windows"
+            4
         ],
         "quotes": [
             "error",
@@ -24,6 +20,9 @@
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "no-console": 
+            "off"
+        
     }
 }
