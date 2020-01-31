@@ -1,0 +1,15 @@
+CREATE DATABASE project_db;
+use project_db;
+
+CREATE TABLE fridge(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    food VARCHAR(50) NOT NULL,
+    quantity INT NOT NULL,
+
+);
+
+CREATE TABLE list(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    food VARCHAR(50) NOT NULL,
+    needed INT NOT NULL
+)
