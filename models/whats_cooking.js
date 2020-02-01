@@ -1,34 +1,24 @@
-var orm = require("../config/orm.js");
-var item = {
+// Dependencies
+// =============================================================
 
-    // selecting all items
-    all: function(cb) {
-        orm.all("item", function(res) {
-            cb(res);
-        });
-    },
-    
-    // creating new burger
-    create: function(cols, vals, cb) {
-        orm.create("item", cols, vals, function(res) {
-            cb(res);
-        });
-    },
+// This may be confusing but here Sequelize (capital) references the standard library
+var Sequelize = require("sequelize");
+// sequelize (lowercase) references our connection to the DB.
+var sequelize = require("../config/connection.js");
 
-    // updating burger
-    update: function(objColVals, condition, cb) {
-        orm.update("item", objColVals, condition, function(res) {
-            cb(res);
-        });
-    },
+// Creates a "Chirp" model that matches up with DB
+var food = sequelize.define("food", {}, {
+    food_name: Sequelize.STRING,
+    // createdAt: Sequelize.DATE,
+    // updatedAt: Sequelize.DATE
 
-    // deleting burger
-    delete: function(condition, cb) {
-        orm.delete("item", condition, function(res) {
-            cb(res);
-        });
-    }
-};
-  
-    // Export the database functions for the controller (catsController.js).
-module.exports = item;
+},
+{
+    timestamps: false
+});
+
+// Syncs with DB
+food.sync();
+console.log(food);
+// Makes the Chirp Model available for other files (will also create a table)
+module.exports = food;
