@@ -1,8 +1,12 @@
-DROP DATABASE IF EXISTS whats_cooking_db;
+CREATE DATABASE project_db;
+use project_db;
 
-CREATE DATABASE whats_cooking_db;
+CREATE TABLE fridge(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    food VARCHAR(50) NOT NULL,
+    quantity INT NOT NULL,
 
-USE whats_cooking_db;
+);
 
 CREATE TABLE item (
   id INT NOT NULL AUTO_INCREMENT,
