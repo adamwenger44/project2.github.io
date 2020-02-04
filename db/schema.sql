@@ -9,3 +9,10 @@ CREATE TABLE item (
   item_name VARCHAR(30) NOT NULL,
   PRIMARY KEY (id)
 );
+
+CREATE TABLE food (
+  id INT NOT NULL AUTO_INCREMENT,
+  food_name VARCHAR(30) NOT NULL,
+  type_id INT NOT NULL,
+  PRIMARY KEY (id)
+);
