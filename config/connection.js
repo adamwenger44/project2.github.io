@@ -1,22 +1,20 @@
-// Set up MySQL connection.
-var mysql = require("mysql");
 
-var connection = mysql.createConnection({
+// *********************************************************************************
+// CONNECTION.JS - THIS FILE INITIATES THE CONNECTION TO MYSQL
+// *********************************************************************************
+
+// Dependencies
+var Sequelize = require("sequelize");
+
+// Creates mySQL connection using Sequelize, the empty string in the third argument spot is our password.
+var sequelize = new Sequelize("whats_cooking_db", "root", "", {
     host: "localhost",
+    dialect: "mysql",
     port: 3306,
-    user: "root",
-    password: "",
-    database: "whats_cooking_db"
 });
+sequelize.authenticate(); {
+    console.log("connected");
+}
 
-// Make connection.
-connection.connect(function(err) {
-    if (err) {
-        console.error("error connecting: " + err.stack);
-        return;
-    }
-    console.log("connected as id " + connection.threadId);
-});
-
-// Export connection for our ORM to use.
-module.exports = connection;
+// Exports the connection for other files to use
+module.exports = sequelize;
