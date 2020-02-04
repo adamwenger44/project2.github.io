@@ -7,18 +7,25 @@ var Sequelize = require("sequelize");
 var sequelize = require("../config/connection.js");
 
 // Creates a "Chirp" model that matches up with DB
-var food = sequelize.define("food", {}, {
-    food_name: Sequelize.STRING,
-    // createdAt: Sequelize.DATE,
-    // updatedAt: Sequelize.DATE
-
+var food = sequelize.define("food",{
+    food_name: {
+        type: Sequelize.STRING,
+        allowNull: false
+        
+    }
 },
 {
     timestamps: false
+}, {
+    sequelize,
+    modelName: food
+},
+{
+    freezeTableName: true
 });
+console.log(food === sequelize.models.food); // true
 
 // Syncs with DB
 food.sync();
-console.log(food);
 // Makes the Chirp Model available for other files (will also create a table)
 module.exports = food;
