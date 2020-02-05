@@ -1,4 +1,3 @@
-
 // *********************************************************************************
 // CONNECTION.JS - THIS FILE INITIATES THE CONNECTION TO MYSQL
 // *********************************************************************************
@@ -12,9 +11,10 @@ var sequelize = new Sequelize("whats_cooking_db", "root", "", {
     dialect: "mysql",
     port: 3306,
 });
-sequelize.authenticate(); {
-    console.log("connected");
-}
+sequelize.authenticate()
+    .then(() => {
+        console.log("connected to DB");
+    });
 
 // Exports the connection for other files to use
 module.exports = sequelize;

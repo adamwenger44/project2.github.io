@@ -3,29 +3,25 @@
 
 // This may be confusing but here Sequelize (capital) references the standard library
 var Sequelize = require("sequelize");
-// sequelize (lowercase) references our connection to the DB.
+// // sequelize (lowercase) references our connection to the DB.
 var sequelize = require("../config/connection.js");
 
 // Creates a "Chirp" model that matches up with DB
-var food = sequelize.define("food",{
+var Food = sequelize.define("food", {
     food_name: {
         type: Sequelize.STRING,
+        allowNull: false,
+        validate: {
+            len: [1, 140]
+        }
+    },
+    type_id: {
+        type: Sequelize.INTEGER,
         allowNull: false
-        
     }
-},
-{
-    timestamps: false
-}, {
-    sequelize,
-    modelName: food
-},
-{
-    freezeTableName: true
-});
-console.log(food === sequelize.models.food); // true
+}, {timestamps: false});
 
 // Syncs with DB
-food.sync();
-// Makes the Chirp Model available for other files (will also create a table)
-module.exports = food;
+Food.sync({force: true});
+
+module.exports = Food;
