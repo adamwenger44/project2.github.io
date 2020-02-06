@@ -11,6 +11,11 @@ module.exports = function(app) {
             res.render("index", results);
         });
     });
+    app.get("/#modal1", function (req, res) {
+        Food.findAll({}).then( function(results) {
+            res.render("index", results);
+        });
+    });
 
     app.get("/item", function (req, res) {
         Items.findAll({}).then( function(results) {
