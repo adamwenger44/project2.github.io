@@ -1,5 +1,5 @@
-CREATE DATABASE project_db;
-use project_db;
+CREATE DATABASE whats_cooking_db;
+use whats_cooking_db;
 
 CREATE TABLE fridge(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
