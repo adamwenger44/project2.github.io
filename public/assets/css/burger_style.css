@@ -1,0 +1,154 @@
+.nav-wrapper{
+
+  background-color: #bebebe;
+  height: 30px;
+ 
+}
+.a.logo{
+  margin-top: 50px;
+}
+
+
+h2{
+  color: #0d175c;
+  text-align: center;
+  font-weight: 800; 
+  font-family: 'molle', cursive;
+  font-size: 45px;
+  margin-top: 0px;
+  padding-top: 4px;
+} 
+
+p{
+
+  font-size: 25px;
+}
+
+#table{
+ width: 1440px; 
+   } 
+
+   /* Container holding the image and the text */
+ .container {
+  position: relative;
+  text-align: center; 
+  color: white;
+  margin-left: 0px;
+  margin-right: 0px; 
+  margin: 0px, 0px, 0px, 0px;
+
+  
+} 
+/* Bottom left text */
+.bottom-left {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+}
+
+/* Top left text */
+.top-left {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+
+/* Top right text */
+.top-right {
+  position: absolute;
+  top: 8px;
+  right: -413px;
+}
+
+/* Bottom right text */
+.bottom-right {
+  position: absolute;
+  bottom: 8px;
+  right:  -413px ;
+}
+
+/* Main Description of page */
+.centered {
+  position: absolute;
+  width: 1300px;
+  /* top: 50%; */
+  /* left: 50%; */
+  left: 700px;
+  top: 180px;
+  transform: translate(-50%, -50%);
+}
+/* Text box search for recipes */
+#search{
+  position: absolute;
+  left: 600px;
+  top: 350px;
+  height: 49px;
+  border: 1px solid whitesmoke;
+  padding-left: 8px;
+  width: 178.5px;
+  
+
+  
+}
+/* Button that contains the hourglass */
+#hourGlass{
+  position: absolute;
+  left: 178.5px;
+  top: -1.5px;
+  padding-top: 6px;
+  padding-right: 7px;
+  padding-bottom: 6px;
+  padding-left: 7px;
+  border-radius: 0px,25px,25px,0px;
+  border: 1px solid whitesmoke;
+  border-radius: 0px 8px 8px 0px;
+  height: 49.5px;
+  
+}
+
+.dropDown{
+  position: absolute;
+  left: 100px;
+  top: 435px;
+  width: 200px;
+ 
+
+}
+
+label{
+
+  font-size: 30px;
+  color: whitesmoke;
+}
+
+.mdList{
+
+  position: absolute;
+  left: 600px;
+  top: 600px;
+}
+
+.mdFridge{
+
+  position: absolute;
+  left: 900px;
+  top: 800px;
+
+}
+
+.go{
+  position: absolute;
+  left: 303px;
+  top: 484px;
+
+
+}
+
+
+
+
+
+
+
+
+
