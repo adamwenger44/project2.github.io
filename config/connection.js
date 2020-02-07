@@ -10,6 +10,7 @@ var sequelize = new Sequelize("project_db", "root", "yourRootPassword", {
     host: "localhost",
     dialect: "mysql",
     port: 3306,
+    password: "yourRootPassword"
 });
 sequelize.authenticate()
     .then(() => {
