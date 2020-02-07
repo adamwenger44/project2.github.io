@@ -21,7 +21,9 @@ var Food = sequelize.define("food", {
     }
 }, {timestamps: false});
 
+
 // Syncs with DB
 Food.sync({force: true});
 
 module.exports = Food;
+
