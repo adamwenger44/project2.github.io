@@ -10,6 +10,7 @@ var sequelize = new Sequelize("whats_cooking_db", "root", "", {
     host: "localhost",
     dialect: "mysql",
     port: 3306,
+    password: "yourRootPassword"
 });
 sequelize.authenticate()
     .then(() => {

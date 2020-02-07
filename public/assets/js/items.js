@@ -1,6 +1,6 @@
-var instance = M.Modal.getInstance(elem);
-
 $(function() {
+    $('.modal').modal();
+    
     $(".create-form").on("submit", function(event){
         event.preventDefault();
         var newItem = {
@@ -47,12 +47,3 @@ $(function() {
     
 
 });
-
-document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.modal');
-    var instances = M.Modal.init(elems, options);
-  });
-  // Or with jQuery
-  $(document).ready(function(){
-    $('.modal').modal();
-  });
