@@ -6,8 +6,8 @@ var Sequelize = require("sequelize");
 // // sequelize (lowercase) references our connection to the DB.
 var sequelize = require("../config/connection.js");
 
-var Items = sequelize.define("items", {
-    items_name: {
+var Fridge = sequelize.define("fridge", {
+    fridge_name: {
         type: Sequelize.STRING,
         allowNull: false,
         validate: {
@@ -15,8 +15,7 @@ var Items = sequelize.define("items", {
         }
     },
 
-}, {timestamps: false},
-{freezeTableName: true}
+}, {timestamps: false, freezeTableName: true}
 
 );
 
@@ -24,8 +23,8 @@ var Items = sequelize.define("items", {
 
 // Syncs with DB
 
-Items.sync({force: true});
+Fridge.sync({force: true});
 
 
-module.exports = Items;
+module.exports = Fridge;
 
