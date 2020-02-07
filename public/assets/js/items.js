@@ -44,6 +44,53 @@ $(function() {
         }).then(location.reload());
     })
 
+    $("#listData").on("click", function(event){
+        $.get("/shoppingList", function(data) {
+            console.log(data)
+
+            if (data.length !== 0) {
+          
+              for (var i = 0; i < data.length; i++) {
+          
+                var row = $("<div>");
+                row.addClass("shopping");
+          
+                row.append("<p>" + data[i].items_name + "</p>");
+                
+          
+                $(".shoppingList").prepend(row);
+          
+              }
+          
+            }
+          
+          });
+    });
+
+    $("#fridgeBtn").on("click", function(event){
+        $.get("/fridge", function(data) {
+            console.log(data)
+
+            if (data.length !== 0) {
+          
+              for (var i = 0; i < data.length; i++) {
+          
+                var row = $("<div>");
+                row.addClass("fridge");
+          
+                row.append("<p>" + data[i].fridge_name + "</p>");
+                
+          
+                $(".fridgeList").prepend(row);
+          
+              }
+          
+            }
+          
+          });
+    });
+
+
     
 
 });
