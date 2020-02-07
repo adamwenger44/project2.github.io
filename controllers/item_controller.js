@@ -1,5 +1,6 @@
 var Food = require("../models/whats_cooking.js");
 var Items = require("../models/item.js");
+var axios = require("axios");
 
 // var Item = require("../models/item.js");
 // Create all our routes and set up logic within those routes where required.
@@ -20,14 +21,15 @@ module.exports = function(app) {
     app.get("/item", function (req, res) {
         Items.findAll({}).then( function(results) {
             res.json(results);
-            var queryURL = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=cheese,+bacon,+pepperoni&apiKey=9d10a5f4a8ec46b19a1194adcdda58b1&number=2"
-            $.ajax({
+            var input = document.querySelector("hourGlass");
+            var queryURL = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + input + "&apiKey=9d10a5f4a8ec46b19a1194adcdda58b1&number=2";
+            axios({
                 url: queryURL,
                 method: "GET"
             }).then(function(response) {
-                for(i = 0; i < response.length; i++){
+                for( var i = 0; i < response.length; i++){
                     var allResponses = response[i];
-                    for (z = 0; z < response[i].missedIngredients.length; z++) {
+                    for (var z = 0; z < response[i].missedIngredients.length; z++) {
                         var itemNeed = response[i].missedIngredients[z].name;
                         // var amount = response[i].missedIngredients[z].amount;
                     // console.log(missed);
@@ -111,16 +113,16 @@ module.exports = function(app) {
     //     });
     // });
 
-    app.post("/api/items", function (req, res) {
-        Food.create([
-            "items_name"
-        ], [
-            req.body.item_name
-        ], function (result) {
-        // Send back the ID of the new quote
-            res.json({ id: result.insertId });
-        });
-    });
+    // app.post("/api/items", function (req, res) {
+    //     Food.create([
+    //         "items_name"
+    //     ], [
+    //         req.body.item_name
+    //     ], function (result) {
+    //     // Send back the ID of the new quote
+    //         res.json({ id: result.insertId });
+    //     });
+    // });
 
 
 };
