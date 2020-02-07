@@ -2,8 +2,22 @@
 
   background-color: #bebebe;
   height: 30px;
- 
+  width: 100%
+  
 }
+/* column for the nav bar to make it responsive to small screens and up  */
+.col.s12{
+
+  padding-left: 0px;
+  padding-right: 0px;
+  height: 65px;
+  /* max-width: 100%; */
+  
+  width: 100vw;
+
+
+}
+
 .a.logo{
   margin-top: 50px;
 }
@@ -25,7 +39,8 @@ p{
 }
 
 #table{
- width: 1440px; 
+ /* width: 100%;  */
+ width: 100vw;
    } 
 
    /* Container holding the image and the text */
@@ -36,7 +51,9 @@ p{
   margin-left: 0px;
   margin-right: 0px; 
   margin: 0px, 0px, 0px, 0px;
+  /* width: 100%; */
 
+ width: 100vw;
   
 } 
 /* Bottom left text */
