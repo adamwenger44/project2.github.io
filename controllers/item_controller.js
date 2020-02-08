@@ -27,6 +27,28 @@ module.exports = function(app) {
             res.json(results);
         });
     });
+    app.post("/api/new", function(req, res) {
+
+        console.log("Chirp Data:");
+        console.log(req.body);
+    
+        Items.create({
+            items_name: req.body.items_name,
+        });
+        res.status(204).end();
+    
+    });
+    app.post("/fridge/new", function(req, res) {
+
+        
+        console.log(req.body);
+    
+        Fridge.create({
+            fridge_name: req.body.fridge_name,
+        });
+        res.status(204).end();
+    
+    });
 
     // app.get("/item", function (req, res) {
     //     Items.findAll({}).then( function(results) {
