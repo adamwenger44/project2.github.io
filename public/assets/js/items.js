@@ -122,7 +122,7 @@ $(function () {
             url: "api/items/" + id
         }).then(location.reload());
     })
-    
+
     $("#listBTN").on("click", function (event) {
 
         $.get("/shoppingList", function (data) {
@@ -150,39 +150,15 @@ $(function () {
         });
     });
 
-   
-
-    // $(".dropDown").on("click", function (event) {
-    //     $.get("/food", function (data) {
-    //         console.log(data)
-
-    //         if (data.length !== 0) {
-
-    //             for (var i = 0; i < data.length; i++) {
-
-    //                 var row = $("<option>");
-    //                 row.addClass("food");
-
-    //                 row.append("<p>" + data[i].food_name + "</p>");
-
-
-    //                 $("#bob").prepend(row);
-    //             }
-    //         }
-    //     });
-    // });
-
-    
 
     $(document).on("click", "#switch", function (event) {
         $.get("/shoppingList", function (data) {
-
             $(".fridgeList").empty();
-console.log("here i am")
+            console.log("here i am")
             console.log(data)
 
             if (data.length !== 0) {
-console.log("about to insert list")
+                console.log("about to insert list")
                 for (var i = 0; i < data.length; i++) {
 
                     var row = $(`<div data-id="${i}">`);
@@ -201,6 +177,9 @@ console.log("about to insert list")
         });
 
     });
+
+
+});
 
     $("#hourGlass").on("click", function(event){
         event.preventDefault();
