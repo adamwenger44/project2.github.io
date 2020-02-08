@@ -180,7 +180,6 @@ $(function () {
 
 
 });
-
     $("#hourGlass").on("click", function(event){
         event.preventDefault();
         var inputBox = $("#searchText").val();
@@ -219,4 +218,6 @@ $(function () {
 
 
     
-})});
+});
+
+
