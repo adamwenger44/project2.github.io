@@ -130,4 +130,39 @@ label{
   position: absolute;
   left: 303px;
   top: 484px;
+
+
 }
+
+.popup-overlay {
+  visibility:hidden;
+  }
+  
+  .popup-content {
+  visibility:hidden;
+  }
+
+  .popup-overlay.active{
+    visibility:visible;
+    position: absolute;
+    background-color: white;
+    box-sizing: border-box;
+    align-content: center;
+    
+
+    }
+    
+    .popup-content.active {
+    visibility:visible;
+    position: absolute;
+    background-color: white;
+    align-content: center;
+    box-sizing: border-box;
+    }
+
+
+
+
+
+
+
