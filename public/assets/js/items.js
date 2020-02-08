@@ -43,10 +43,11 @@ $(function () {
             url: "api/items/" + id
         }).then(location.reload());
     })
-    var bob = $("#listData").on("click", function (event) {
+    $("#listBTN").on("click", function (event) {
+
         $.get("/shoppingList", function (data) {
 
-                console.log(data)
+            console.log(data)
 
             if (data.length !== 0) {
 
@@ -58,16 +59,17 @@ $(function () {
                     row.append("<p>" + data[i].items_name + "</p>");
 
 
+
                     $(".shoppingList").prepend(row);
 
                 }
 
             }
-            
+
         });
     });
 
-    $("#fridgeBtn").on("click", function (event) {
+    $("#fridgeBTN").on("click", function (event) {
         $.get("/fridge", function (data) {
             console.log(data)
 
@@ -90,7 +92,27 @@ $(function () {
         });
     });
 
-    $(".dropDown").on("click", function (event) {
+    // $(".dropDown").on("click", function (event) {
+    //     $.get("/food", function (data) {
+    //         console.log(data)
+
+    //         if (data.length !== 0) {
+
+    //             for (var i = 0; i < data.length; i++) {
+
+    //                 var row = $("<option>");
+    //                 row.addClass("food");
+
+    //                 row.append("<p>" + data[i].food_name + "</p>");
+
+
+    //                 $("#bob").prepend(row);
+    //             }
+    //         }
+    //     });
+    // });
+
+    $(document).on("click", ".dropDown", function (event) {
         $.get("/food", function (data) {
             console.log(data)
 
@@ -102,63 +124,77 @@ $(function () {
                     row.addClass("food");
 
                     row.append("<p>" + data[i].food_name + "</p>");
-
-
                     $("#bob").prepend(row);
+
                 }
             }
+            $("#bob").prepend(row);
+            $(document).on("click", "#bob", function (event) {
+                // event.preventDefault();
+
+                // Make a newChirp object
+                var newItem = {
+                    items_name: $(".food:checked").val(),
+
+                };
+
+
+                console.log(newItem);
+
+                // Send an AJAX POST-request with jQuery
+                $.post("/api/new", newItem)
+                    // On success, run the following code
+                    .then(function () {
+
+                        var row = $("<div>");
+                        row.addClass("item");
+
+                        row.append("<p>" + newItem.items_name + "</p>");
+
+                        $(".shoppingList").prepend(row);
+
+                    });
+
+                // Empty each input box by replacing the value with an empty string
+
+            });
+
+
+
         });
     });
 
-    $(".dropDown").on("click", function (event) {
-        $.get("/food", function (data) {
+    $(document).on("click", ".go", function (event) {
+        $.get("/shoppingList", function (data) {
+
             console.log(data)
 
             if (data.length !== 0) {
 
                 for (var i = 0; i < data.length; i++) {
 
-                    var row = $("<option>");
-                    row.addClass("food");
+                    var row = $("<div>");
+                    row.addClass("movedFridge");
 
-                    row.append("<p>" + data[i].food_name + "</p>");
+                    row.append("<p>" + data[i].items_name + "</p>");
 
 
-                    $("#bob").prepend(row);
-                    $(".dropDown").on("click", function(event) {
-                        event.preventDefault();
-                      
-                        // Make a newChirp object
-                        var newItem = {
-                          items_name: $(".food").val().trim(),
-                        };
-                      
-                        console.log(newItem);
-                      
-                        // Send an AJAX POST-request with jQuery
-                        $.post("/api/new", newItem)
-                          // On success, run the following code
-                          .then(function() {
-                      
-                            var row = $("<div>");
-                            row.addClass("item");
-                      
-                            row.append("<p>" + newItem.items_name + "</p>");
-                      
-                            $(".shoppingList").prepend(row);
-                      
-                          });
-                      
-                        // Empty each input box by replacing the value with an empty string
-                        $("#author").val("");
-                        $("#chirp-box").val("");
-                      });
+
+                    $(".fridgeList").prepend(row);
 
                 }
+
             }
+
         });
+
     });
 
+
+    // $(document).on(“click”,“.food”,()=> {
+    //     console.log($(“.food:checked”).val());
+    //     console.log(“clicked”);
+    // })
 
 
 

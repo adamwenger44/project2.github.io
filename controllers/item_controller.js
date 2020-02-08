@@ -38,6 +38,17 @@ module.exports = function(app) {
         res.status(204).end();
     
     });
+    app.post("/fridge/new", function(req, res) {
+
+        
+        console.log(req.body);
+    
+        Fridge.create({
+            fridge_name: req.body.fridge_name,
+        });
+        res.status(204).end();
+    
+    });
 
     // app.get("/item", function (req, res) {
     //     Items.findAll({}).then( function(results) {
