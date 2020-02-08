@@ -1,7 +1,5 @@
-<<<<<<< HEAD
 
 $(function() {
-=======
 $(document).ready(function () {
     console.log("ready!");
     $.get("/food", function (data) {
@@ -80,7 +78,6 @@ $(document).ready(function (event) {
 });
 
 $(function () {
->>>>>>> 2b11d8c1c008a99a6ddd84f93359f314944a5a29
     $('.modal').modal();
 
     $(".create-form").on("submit", function (event) {
@@ -224,9 +221,8 @@ console.log("about to insert list")
                 var imgURL = response[i].image;
                 var image = $("<img>").attr("src", imgURL);
 
-<<<<<<< HEAD
                 console.log(image);
-                $(".popup-content").prepend(name,image);
+                $(".popup-content").prepend(name,itemNeed,image);
                
                 };
            };
@@ -239,18 +235,9 @@ console.log("about to insert list")
     
     
     });
-=======
-    // $(document).on(“click”,“.food”,()=> {
-    //     console.log($(“.food:checked”).val());
-    //     console.log(“clicked”);
-    // })
-
-
-
->>>>>>> 2b11d8c1c008a99a6ddd84f93359f314944a5a29
 
 
 
 
     
-})
+})});
