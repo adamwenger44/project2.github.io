@@ -125,7 +125,7 @@ $(function () {
 
 
                     $("#bob").prepend(row);
-                    $(".food").on("click", function(event) {
+                    $(".dropDown").on("click", function(event) {
                         event.preventDefault();
                       
                         // Make a newChirp object
