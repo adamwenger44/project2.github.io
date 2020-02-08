@@ -1,5 +1,5 @@
 
-$(function() {
+
 $(document).ready(function () {
     console.log("ready!");
     $.get("/food", function (data) {
@@ -51,9 +51,8 @@ $(document).ready(function () {
 
     })
 
-});
 
-$(document).ready(function (event) {
+
     $.get("/fridge", function (data) {
         console.log(data)
         // $(".fridgeList").empty();
@@ -75,9 +74,8 @@ $(document).ready(function (event) {
         }
 
     });
-});
 
-$(function () {
+
     $('.modal').modal();
 
     $(".create-form").on("submit", function (event) {
@@ -153,6 +151,7 @@ $(function () {
 
     $(document).on("click", "#switch", function (event) {
         $.get("/shoppingList", function (data) {
+
             $(".fridgeList").empty();
             console.log("here i am")
             console.log(data)
@@ -179,45 +178,48 @@ $(function () {
     });
 
 
-});
-    $("#hourGlass").on("click", function(event){
+
+    $("#hourGlass").on("click", function (event) {
         event.preventDefault();
         var inputBox = $("#searchText").val();
         // console.log(inputBox);
         var queryURL = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + inputBox + "&apiKey=9d10a5f4a8ec46b19a1194adcdda58b1&number=3";
-    $.ajax({
-      url: queryURL,
-      method: "GET",
-      crossDomain: true,
-    }).then(function (response) {
-    console.log(response);
-        for(i = 0; i < response.length; i++){
-            var allResponses = response[i];
-            for (z = 0; z < response[i].missedIngredients.length; z++) {
-                var itemNeed = response[i].missedIngredients[z].name;
-                var name = response[i].title;
-                var imgURL = response[i].image;
-                var image = $("<img>").attr("src", imgURL);
+        $.ajax({
+            url: queryURL,
+            method: "GET",
+            crossDomain: true,
+        }).then(function (response) {
+            console.log(response);
+            for (i = 0; i < response.length; i++) {
+                var allResponses = response[i];
+                for (z = 0; z < response[i].missedIngredients.length; z++) {
+                    var itemNeed = $("<li>").text(response[i].missedIngredients[z].name);
+                    var name = $("<h4>").text(response[i].title);
+                    var imgURL = response[i].image;
+                    var image = $("<img>").attr("src", imgURL);
+                    var infoDiv = $("<div>").attr("class", "infoDiv");
+                    (infoDiv).attr("style", "z-index: 100;")
 
-                console.log(image);
-                $(".popup-content").prepend(name,itemNeed,image);
-               
+                    console.log(image);
+                    (infoDiv).prepend(name, itemNeed, image);
+                    $(".popup-content").append(infoDiv);
+
                 };
-           };
+            };
         }).then($(".popup, .popup-content").addClass("active"));
-        $(".close, .popup").on("click", function(){
+        $(".close, .popup").on("click", function () {
             $(".popup, .popup-content").removeClass("active");
-            });
-        
-      
-    
-    
+        });
+
+
+
+
     });
 
 
 
 
-    
+
 });
 
 
