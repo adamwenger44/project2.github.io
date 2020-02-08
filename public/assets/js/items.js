@@ -178,9 +178,8 @@ $(function () {
 
     });
 
-<<<<<<< HEAD
+
 });
-=======
     $("#hourGlass").on("click", function(event){
         event.preventDefault();
         var inputBox = $("#searchText").val();
@@ -219,5 +218,6 @@ $(function () {
 
 
     
-})});
->>>>>>> 3e589a623cb535fff59db3902741cfa1b41a4909
+});
+
+
