@@ -1,6 +1,7 @@
 var Food = require("../models/whats_cooking.js");
 var Items = require("../models/item.js");
-var Fridge = require("../models/fridge.js");
+var Fridge = require("../models/fridge");
+
 
 // var Item = require("../models/item.js");
 // Create all our routes and set up logic within those routes where required.

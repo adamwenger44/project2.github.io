@@ -1,3 +1,5 @@
+
+$(function() {
 $(document).ready(function () {
     console.log("ready!");
     $.get("/food", function (data) {
@@ -176,4 +178,46 @@ $(function () {
 
     });
 
+<<<<<<< HEAD
 });
+=======
+    $("#hourGlass").on("click", function(event){
+        event.preventDefault();
+        var inputBox = $("#searchText").val();
+        // console.log(inputBox);
+        var queryURL = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + inputBox + "&apiKey=9d10a5f4a8ec46b19a1194adcdda58b1&number=3";
+    $.ajax({
+      url: queryURL,
+      method: "GET",
+      crossDomain: true,
+    }).then(function (response) {
+    console.log(response);
+        for(i = 0; i < response.length; i++){
+            var allResponses = response[i];
+            for (z = 0; z < response[i].missedIngredients.length; z++) {
+                var itemNeed = response[i].missedIngredients[z].name;
+                var name = response[i].title;
+                var imgURL = response[i].image;
+                var image = $("<img>").attr("src", imgURL);
+
+                console.log(image);
+                $(".popup-content").prepend(name,itemNeed,image);
+               
+                };
+           };
+        }).then($(".popup, .popup-content").addClass("active"));
+        $(".close, .popup").on("click", function(){
+            $(".popup, .popup-content").removeClass("active");
+            });
+        
+      
+    
+    
+    });
+
+
+
+
+    
+})});
+>>>>>>> 3e589a623cb535fff59db3902741cfa1b41a4909
