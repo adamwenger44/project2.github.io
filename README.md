@@ -1,3 +1,3 @@
 # project2.github.io
 
-Project 2:
+Deployed Link: https://project2bc.herokuapp.com/
